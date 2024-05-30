@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup Page</title>
+  <link rel="stylesheet" href="logincss.css"> 
+  <script src="loginjs.js"></script>
+</head>
+
+<body>
+<div class="hero"></div>
+<div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+        <input type="checkbox" id="toggle" class="toggle">
+        <span class="slider"></span>
+        <span class="card-side"></span>
+        <div class="flip-card__inner">
+            <div class="flip-card__front">
+                <div class="title">Log in</div>
+                <form id="login-form" class="flip-card__form">
+                    <input class="flip-card__input" type="email" name="email" placeholder="Email" required>
+                    <input class="flip-card__input" type="password" name="password" placeholder="Password" required>
+                    <button class="flip-card__btn">Let's go!</button>
+                </form>
+                <div class="error-message"></div>  
+            </div>
+            <div class="flip-card__back">
+                <div class="title">Sign up</div>
+                <form id="signup-form" class="flip-card__form">
+                    <input class="flip-card__input" type="text" name="name" placeholder="Name" required>
+                    <input class="flip-card__input" type="email" name="email" placeholder="Email" required>
+                    <input class="flip-card__input" type="password" name="password" placeholder="Password" required>
+                    <button class="flip-card__btn">Confirm!</button>
+                </form>
+                <div class="error-message"></div>  
+            </div>
+      </div>
+    </label>
+  </div>
+</div>
+
+  <script>
+  const toggle = document.getElementById('toggle');
+  const loginForm = document.getElementById('login-form');
+  const signupForm = document.getElementById('signup-form');
+
+  const loginErrorMessage = document.querySelector('.flip-card__front .error-message');
+  const signupErrorMessage = document.querySelector('.flip-card__back .error-message');
+
+  toggle.addEventListener('change', () => {
+    const cardFront = document.querySelector('.flip-card__front');
+    const cardBack = document.querySelector('.flip-card__back');
+    cardFront.classList.toggle('flip');
+    cardBack.classList.toggle('flip');
+  });
+
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(loginForm); // More robust way to get form data
+
+    // Implement login logic here, e.g., fetch data from backend or simulate local storage
+    // For this example, we'll simulate basic validation (replace with real authentication)
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    if (email === 'user@example.com' && password === 'secret') {
+      // Login successful (replace with redirect to appropriate page)
+      alert('Login successful!'); // Temporary alert for demonstration
+    } else {
+      loginErrorMessage.textContent = 'Invalid email or password.';
+    }
+  });
+
+  signupForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(signupForm); // More robust way to get form data
+
+    // Implement signup logic here, e.g., send data to backend or simulate local storage
+    // For this example, we'll simulate basic validation
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    if (name && email && password) {
+      // Signup successful (replace with redirect or success message)
+      alert('Signup successful!'); // Temporary alert for demonstration
+    } else {
+      signupErrorMessage.textContent = 'Please fill in all fields.';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: #a5a0a0;
+}
+
+.background-animation {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  animation: backgroundChange 10s infinite;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  /* padding: 10px 20px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.login {
+  flex: 0 0 auto;
+}
+
+button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em 0em 1em 1em;
+  background-color: rgb(66, 55, 125);
+  cursor: pointer;
+  box-shadow: 4px 6px 0px black;
+  border: 4px solid;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+  transition: box-shadow 250ms, transform 250ms, filter 50ms;
+}
+
+button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 3px 0px black;
+}
+
+button:active {
+  filter: saturate(0.75);
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(147, 125, 129);
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 250ms;
+}
+
+button:hover::after {
+  transform: translateX(0);
+}
+
+.bgContainer {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  max-width: 35%;
+  font-size: 1em;
+  font-weight: 600;
+  color: #f3eded;
+}
+
+.bgContainer span {
+  position: relative;
+  transform: translateX(-100%);
+  transition: all 250ms;
+}
+
+.button:hover .bgContainer > span {
+  transform: translateX(0);
+}
+
+.arrowContainer {
+  padding: 1em;
+  margin-inline-end: 1em;
+  border: 4px solid;
+  border-radius: 50%;
+  background-color: rgb(147, 125, 129);
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms, background-color 250ms;
+  z-index: 100;
+}
+
+.arrowContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: rgb(66, 55, 125);
+  transform: translateX(-100%);
+  z-index: -1;
+  transition: transform 250ms ease-in-out;
+}
+
+button:hover .arrowContainer::after {
+  transform: translateX(0);
+}
+
+button:hover .arrowContainer {
+  transform: translateX(5px);
+}
+
+button:active .arrowContainer {
+  transform: translateX(8px);
+}
+
+.arrowContainer svg {
+  vertical-align: middle;
+}
+.create-button a {
+  color: white; /* Set the text color to white */
+  text-decoration: none; /* Remove the underline */
+}
+
+.create-button a:hover {
+  background-color: #ff5722; /* Change the background color on hover */
+}
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  z-index: 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.315);
+  margin-top: 100px; /* To avoid overlap with the fixed header */
+}
+
+.content h1 {
+  font-size: 3em;
+  margin: 0.5em 0;
+}
+
+.content p {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.create-button {
+  padding: 0.5em 2em;
+  font-size: 1.2em;
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+@keyframes backgroundChange {
+  0% {
+    background: url('https://i.pinimg.com/564x/28/0a/60/280a600e373eae38532716d885638371.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+  }
+  33% {
+    background: url('https://i.pinimg.com/564x/72/9e/52/729e52348dda75789cb80078aa7cf683.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+  }
+  66% {
+    background: url('https://i.pinimg.com/564x/43/30/88/4330883a2e822dc65ec856d09a8f2e56.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+  }
+  100% {
+    background: url('https://i.pinimg.com/564x/8e/9a/67/8e9a67f6654803ea1d2fb8a62cdf5058.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #ff6f00;
+  color: white;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px; /* Adjusted margin to properly position below content */
+}
+
+.text-section {
+  max-width: 50%;
+}
+
+.image-section {
+  position: relative;
+  max-width: 50%;
+}
+
+/* .image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-container img {
+  width: 200px;
+  height: 200px;
+  transition: transform 0.3s, z-index 0.3s;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.image-container img:hover {
+  transform: scale(1.2);
+  z-index: 10;
+} */
+.image-container {
+  position: relative;
+  width: 600px; /* Adjust size as needed */
+  height: 400px; /* Adjust size as needed */
+}
+
+.image {
+  position: absolute;
+  width: 50%; /* Adjust size as needed */
+  height: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s;
+}
+
+.image1 {
+  top: 20%;
+  left: 30%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.image2 {
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.image3 {
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.image4 {
+  top: 80%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(16deg);
+}
+
+.image:hover {
+  transform: scale(1.2) translate(-50%, -50%); /* Increased scaling */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow effect */
+  z-index: 10;
+}
+.container2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: fit-content;
+  gap: 20px;
+  margin-top: 100px;
+}
+
+.image-container2 {
+  position: relative;
+  text-align: center;
+  max-width: 300px;
+  transition: transform 0.3s;
+}
+
+.image-container2 img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.image-container2 img:hover {
+  transform: scale(1.1);
+}
+
+.note-content {
+  position: absolute;
+  top: 0;
+  left: 105%;
+  width: 200px;
+  max-height: 350px; /* Adjust as needed */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto; /* Add scroll if content exceeds max-height */
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.note-content p {
+  /* Remove max-height and overflow properties */
+  overflow: visible;
+  max-height: none;
+}
+
+.image-container2:hover .note-content {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0s 0s;
+}
+
+.image-container2:hover ~ .image-container2 {
+  transform: translateX(220px);
+}
+.world-map {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 10px;
+  text-align: center;
+  border: 2px solid #000;
+}
+.world-map h2 {
+  margin: 10px 0;
+  color: #000;
+  text-align: center;
+}
+
+.world-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pin {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.pin span {
+  display: none;
+}
+
+.pin:hover span {
+  display: block;
+}
+
+.pin.usa {
+  top: 48%;
+  left: 20%;
+}
+
+.pin.france {
+  top: 50%;
+  left: 48%;
+}
+
+.pin.sweden {
+  top: 33%;
+  left: 52%;
+}
+
+.pin.south-africa {
+  top: 75%;
+  left: 55%;
+}
+
+.pin.brazil {
+  top: 75%;
+  left: 33%;
+}
+
+.pin.china {
+  top: 53%;
+  left: 73%;
+}
+
+.pin.australia {
+  top: 80%;
+  left: 86%;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 50px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.footer-col h3 {
+  margin-bottom: 20px;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+.footer-col ul li a i {
+  margin-right: 5px;
+}
+
+.footer-col hr {
+  border-color: #555;
+}
+
+.footer-col .copyright {
+  margin-top: 20px;
+  text-align: left;
+  grid-column: 1 / -1; /* This will make the copyright notice span across all columns */
+}

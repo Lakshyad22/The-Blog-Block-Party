@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Block Party - FAQs</title>
+    <link rel="stylesheet" href="faq'style.css">
+</head>
+<body>
+    <header>
+        <h1>Blog Block Party - FAQs</h1>
+    </header>
+    <main>
+        <section class="faq-section">
+            <div class="faq-item">
+                <h3 class="question">What topics does Blog Block Party cover?</h3>
+                <p class="answer">Blog Block Party covers a wide range of topics including but not limited to lifestyle, fashion, travel, food, technology, and more. We strive to provide engaging content that caters to diverse interests.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="question">Can I contribute to Blog Block Party as a guest writer?</h3>
+                <p class="answer">Yes, we welcome guest contributions! If you're passionate about a particular subject and would like to share your insights with our audience, feel free to reach out to us through our contact page.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="question">How frequently are new blog posts published?</h3>
+                <p class="answer">We aim to publish new blog posts regularly, typically several times a week. Our team works diligently to bring fresh and engaging content to our readers on a consistent basis.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="question">Do you accept sponsored content or advertising?</h3>
+                <p class="answer">Yes, we offer opportunities for sponsored content and advertising collaborations. If you're interested in promoting your brand or products on Blog Block Party, please contact our advertising team for further details.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="question">How can I stay updated with Blog Block Party?</h3>
+                <p class="answer">You can stay updated with the latest blog posts and announcements from Blog Block Party by subscribing to our newsletter. Additionally, you can follow us on social media platforms such as Instagram, Facebook, and Twitter for real-time updates.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Blog Block Party. All rights reserved.</p>
+    </footer>
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll('.question');
+        
+            questions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isVisible = answer.classList.contains('show');
+                    
+                    questions.forEach(q => {
+                        q.nextElementSibling.classList.remove('show');
+                    });
+        
+                    if (!isVisible) {
+                        answer.classList.add('show');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
